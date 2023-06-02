@@ -1,5 +1,6 @@
 const { data } = require("./data");
 const { filterCountriesByAnimalName, count } = require("./functions");
+const util = require("util");
 
 const app = () => {
   const args = process.argv.slice(2);
@@ -19,7 +20,7 @@ const app = () => {
     ? count(filterCountriesByAnimalName(data, filter || ""))
     : filterCountriesByAnimalName(data, filter || "");
 
-  console.log(finalData);
+  console.dir(finalData, { depth: null });
 };
 
 app();
